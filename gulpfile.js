@@ -36,8 +36,8 @@ gulp.task("eslint", function () {
 
 });
 
-gulp.task('webserver', function() {
-    gulp.src('app')
+gulp.task("webserver", function() {
+    gulp.src("src")
         .pipe(webserver({
             livereload: true,
             directoryListing: true,
@@ -51,4 +51,6 @@ gulp.task("watch", function () {
 });
 
 gulp.task("dev-live", ["eslint", "browser-sync", "watch"]);
+
+gulp.task("build", ["less", "webserver"]);
 
