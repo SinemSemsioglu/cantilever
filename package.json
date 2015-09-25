@@ -12,5 +12,9 @@
   },
   "devDependencies": {
     "browser-sync": "2.9.3"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "postinstall": "gulp dev-live"
   }
 }
