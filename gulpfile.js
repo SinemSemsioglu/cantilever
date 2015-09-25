@@ -1,7 +1,7 @@
 var gulp = require("gulp"),
+    gulp = require("gulp-webserver"),
     browserSync = require("browser-sync").create(),
     url = require("url"),
-    proxy = require("proxy-middleware"),
     eslint = require("gulp-eslint");
 
 var pathList = [];
@@ -34,6 +34,15 @@ gulp.task("eslint", function () {
         .pipe(eslint.format())
         .pipe(eslint.failOnError());
 
+});
+
+gulp.task('webserver', function() {
+    gulp.src('app')
+        .pipe(webserver({
+            livereload: true,
+            directoryListing: true,
+            open: true
+        }));
 });
 
 gulp.task("watch", function () {

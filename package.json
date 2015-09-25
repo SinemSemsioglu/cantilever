@@ -11,10 +11,10 @@
     "bower": "1.5.3"
   },
   "devDependencies": {
-    "browser-sync": "2.9.3"
+    "browser-sync": "2.9.3",
+    "gulp-webserver": "^0.9.1"
   },
   "scripts": {
-    "start": "node app.js",
-    "postinstall": "gulp dev-live"
+    "postinstall": "bower install && gulp build"
   }
 }
