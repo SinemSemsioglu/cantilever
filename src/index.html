@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>events</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    	<script src="/bower_components/angular/angular.js"></script>
+    	<script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+		<link rel="stylesheet" href="style/events.css">
+  	</head>
+
+	<div ng-include="'templates/header.html'"> </div>
+
+	<body ng-app = "eventsApp">
+		<div class="container">
+			<div ui-view></div>
+	  	</div>
+	</body>
+	
+	<script src="app.js"></script>
+	<script src="/js/controllers/eventsController"></script>
+	<script src="/js/controllers/eventsDetailController"></script>
+	<script src="/js/controllers/calendarController"></script>
+	<script src="/js/services/eventsServices"></script>
+	<script src="/js/services/detailServices"></script>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "eventsApp",
+  "private": true,
+  "version": "0.0.0",
+  "description": "eventsApp prototype",
+  "author": "Sinem Semsioglu",
+  "license": "Private",
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-ui-router": "0.2.15"
+  }
+}

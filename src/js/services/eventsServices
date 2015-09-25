@@ -1,0 +1,51 @@
+app.service("eventsUtil", [function () {
+
+    var events = [];
+
+    events.push({
+        "name": "suckerpin",
+        "date": "12.3.2015",
+        "time": "14.32",
+        "location": "modeslektor",
+        "description": "great, good, awesome",
+        "phone": "0000",
+        "source": "blargh",
+        "img": "/assets/sample.png"
+    });
+    events.push({
+        "name": "le perv",
+        "location": "carpenter brut",
+        "time": "10.30",
+        "description": "le perv will be in berlin's favorite pissing hole",
+        "phone": "1111",
+        "source": "blargh",
+        "img": "/assets/sample.png"
+    });
+    events.push({
+        "name": "leylek",
+        "date": "carpenter brut",
+        "time": "22.15",
+        "location": "ruby my dear",
+        "description": "ruby ruby ruby!",
+        "img": "/assets/sample.png"
+    });
+    events.push({
+        "name": "jitter room",
+        "time": "16.45",
+        "location": "vorpal",
+        "description": "vorpal borpal morpal",
+        "img": "/assets/sample.png"
+    });
+    events.push({
+        "name": "outrun this",
+        "time": "20.45",
+        "location": "massive attack",
+        "description": "this is the end, beautiful friend the end.",
+        "img": "/assets/sample.png"
+    });
+
+    this.getEvents = function () {
+        return events;
+    };
+
+}]);

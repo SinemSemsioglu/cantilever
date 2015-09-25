@@ -1,0 +1,6 @@
+.calendar-container {
+  position: absolute;
+}
+.day {
+  font-size: size-3;
+}

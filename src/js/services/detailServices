@@ -1,0 +1,12 @@
+app.service("detailsUtil", [function () {
+    var event = {};
+
+    this.setEvent = function (evnt) {
+        event = evnt;
+
+    };
+
+    this.getEvent = function () {
+        return event;
+    };
+}]);

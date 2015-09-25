@@ -1,0 +1,23 @@
+.list-container {
+  //position: relative;
+  //left: 300px;
+  float: left;
+  width: @mid-section-width;
+  margin: 0 @component-margin;
+
+  .event {
+    display: inline-block;
+    margin: 0 @element-margin;
+
+    &.location {
+      font-size: @size-3;
+    }
+    &.name {
+      font-size: @size-4;
+    }
+    &.button {
+      .box(auto;auto;transparent);
+      .inherit-font;
+    }
+  }
+}

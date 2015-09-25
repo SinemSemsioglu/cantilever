@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "BabasNeueBold";
+  src: url("/assets/babas.ttf");
+}
+.inherit-font {
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+}
