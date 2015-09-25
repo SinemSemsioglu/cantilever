@@ -15,6 +15,6 @@
     "gulp-webserver": "^0.9.1"
   },
   "scripts": {
-    "postinstall": "bower install && gulp build"
+    "postinstall": "bower install"
   }
 }
