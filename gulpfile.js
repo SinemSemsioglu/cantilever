@@ -1,5 +1,5 @@
 var gulp = require("gulp"),
-    gulp = require("gulp-webserver"),
+    webserver = require("gulp-webserver"),
     browserSync = require("browser-sync").create(),
     url = require("url"),
     eslint = require("gulp-eslint");
@@ -52,5 +52,4 @@ gulp.task("watch", function () {
 
 gulp.task("dev-live", ["eslint", "browser-sync", "watch"]);
 
-gulp.task("build", ["less", "webserver"]);
-
+gulp.task("build", ["webserver"]);
