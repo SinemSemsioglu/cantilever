@@ -6,15 +6,22 @@
   "author": "Sinem Semsioglu",
   "license": "Private",
   "dependencies": {
+    "bower": "1.5.3",
     "gulp": "3.9.0",
+    "gulp-concat": "^2.6.0",
     "gulp-eslint": "^1.0.0",
-    "bower": "1.5.3"
-  },
-  "devDependencies": {
-    "browser-sync": "2.9.3",
+    "gulp-less": "^3.0.3",
     "gulp-webserver": "^0.9.1"
   },
+  "devDependencies": {
+    "browser-sync": "2.9.3"
+  },
   "scripts": {
-    "postinstall": "bower install"
-  }
+    "start": "gulp webserver",
+    "postinstall": "bower install && gulp build"
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "src/bower_components"
+  ]
 }
