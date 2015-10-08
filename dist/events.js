@@ -29089,7 +29089,7 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
 
     {
         "name": "Reading Images: After Belonging",
-        "day": "4",
+        "day": "8",
         "month": "10",
         "year": "2015",
         "time": "14.32",
@@ -29100,10 +29100,10 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
 
     {
         "name": "Critical Halloween: DEMO",
-        "day": "4",
+        "day": "8",
         "month": "10",
         "year": "2015",
-        "time": "14.32",
+        "time": "15.32",
         "location": "Storefront for Art and Arch.",
         "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
         "img": "/assets/1.png"
@@ -29111,10 +29111,10 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
 
     {
         "name": "Facing East: Chinese Urbanism in Africa",
-        "day": "4",
+        "day": "8",
         "month": "10",
         "year": "2015",
-        "time": "14.32",
+        "time": "17.32",
         "location": "Storefront for Art and Arch.",
         "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
         "img": "/assets/2.png"
@@ -29122,10 +29122,10 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
 
     {
         "name": "Definition Series: Search vs Research",
-        "day": "4",
+        "day": "8",
         "month": "10",
         "year": "2015",
-        "time": "14.32",
+        "time": "19.32",
         "location": "Storefront for Art and Arch.",
         "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
         "img": "/assets/3.png"
@@ -29133,7 +29133,7 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
 
     {
         "name": "Measure",
-        "day": "4",
+        "day": "9",
         "month": "10",
         "year": "2015",
         "time": "14.32",
@@ -29144,10 +29144,10 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
 
     {
         "name": "BLUEPRINT",
-        "day": "4",
+        "day": "9",
         "month": "10",
         "year": "2015",
-        "time": "14.32",
+        "time": "17.32",
         "location": "Storefront for Art and Arch.",
         "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
         "img": "/assets/1.png"
@@ -29155,10 +29155,10 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
 
     {
         "name": "Supercollider Situation",
-        "day": "4",
+        "day": "9",
         "month": "10",
         "year": "2015",
-        "time": "14.32",
+        "time": "20.32",
         "location": "Storefront for Art and Arch.",
         "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
         "img": "/assets/2.png"
@@ -29166,7 +29166,7 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
 
     {
         "name": "Circus for Construction",
-        "day": "4",
+        "day": "10",
         "month": "10",
         "year": "2015",
         "time": "14.32",
@@ -29177,10 +29177,10 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
 
     {
         "name": "AIR UP!",
-        "day": "4",
+        "day": "10",
         "month": "10",
         "year": "2015",
-        "time": "14.32",
+        "time": "22.32",
         "location": "Storefront for Art and Arch.",
         "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
         "img": "/assets/4.png"
@@ -29189,7 +29189,7 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
     {
         "name": "Call for Pilots",
         "day": "4",
-        "month": "10",
+        "month": "11",
         "year": "2015",
         "time": "14.32",
         "location": "Storefront for Art and Arch.",
@@ -29199,9 +29199,9 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
     {
         "name": "Shore Up: Rebuilding Coastal Landscapes",
         "day": "4",
-        "month": "10",
+        "month": "11",
         "year": "2015",
-        "time": "14.32",
+        "time": "16.32",
         "location": "AIANY",
         "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
         "img": "/assets/2.png"
@@ -29209,37 +29209,37 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
     {
         "name": "Hidden History of the Brooklyn Bridge",
         "day": "4",
-        "month": "10",
+        "month": "11",
         "year": "2015",
-        "time": "14.32",
+        "time": "19.32",
         "location": "AIANY",
         "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
         "img": "/assets/3.png"
     },
     {
         "name": "Heatherwick Studio",
-        "day": "4",
-        "month": "10",
+        "day": "5",
+        "month": "11",
         "year": "2015",
-        "time": "14.32",
+        "time": "20.32",
         "location": "AIANY",
         "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
         "img": "/assets/4.png"
     },
     {
         "name": "Inventing Preservation",
-        "day": "4",
-        "month": "10",
+        "day": "6",
+        "month": "11",
         "year": "2015",
-        "time": "14.32",
+        "time": "11.32",
         "location": "AIANY",
         "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
         "img": "/assets/1.png"
     },
     {
         "name": "Demystifying Energy Modeling",
-        "day": "4",
-        "month": "10",
+        "day": "6",
+        "month": "11",
         "year": "2015",
         "time": "14.32",
         "location": "AIANY",
@@ -29248,10 +29248,10 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
     },
     {
         "name": "Arch & Design Film Festival",
-        "day": "4",
-        "month": "10",
+        "day": "6",
+        "month": "11",
         "year": "2015",
-        "time": "14.32",
+        "time": "18.32",
         "location": "AIANY",
         "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
         "img": "/assets/3.png"
