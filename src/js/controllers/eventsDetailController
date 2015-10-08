@@ -1,4 +1,0 @@
-app.controller("eventsDetailController", ["$scope", "detailsUtil", function ($scope, detailsUtil) {
-    $scope.event = detailsUtil.getEvent();
-}]);
-
