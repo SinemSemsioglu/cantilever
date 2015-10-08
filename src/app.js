@@ -12,11 +12,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 		  "url": "/list",
 			"views": {
 				"list": {
-					"controller" : "eventsController",
-					"templateUrl" : "templates/list.html"
+					"templateUrl" : "templates/events.html"
 				},
 				"calendar": {
-					"templateUrl": "templates/calendar.html",
+					"templateUrl": "templates/date.html",
 					"controller": "calendarController"
 				},
 				"detail": {

@@ -1,9 +1,3 @@
-<div class="calendar-container">
-    <div class="today">
-        <span class="date">{{today | date:"dd.MM.yyyy"}}</span>
-        <span class="day">{{today | date:"EEEE" | uppercase}}</span>
-    </div>
-    <div class="calendar">
+<button ng-repeat="day in monthArray" class="day" ng-click="selectDay(day, month, year)" ng-class="{slct : isSelectedDate(day, month)}">
+            {{::day}}</button>
 
-    </div>
-</div>

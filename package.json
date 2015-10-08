@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "gulp webserver",
-    "postinstall": "bower install && gulp build"
+    "postinstall": "gulp build"
   },
   "cacheDirectories": [
     "node_modules",

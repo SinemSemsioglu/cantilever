@@ -1,0 +1,12 @@
+app.service("searchEventService", [function () {
+
+    currQuery = null;
+
+    this.setQuery = function (query) {
+        currQuery = query;
+    };
+
+    this.getQuery = function () {
+        return currQuery;
+    };
+}]);

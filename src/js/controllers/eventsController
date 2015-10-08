@@ -1,12 +1,14 @@
-app.controller("eventsController", ["eventsUtil", "$scope", "detailsUtil", "$state" ,
-    function (eventsUtil, $scope, detailsUtil, $state) {
-
-        $scope.events = eventsUtil.getEvents();
+app.controller("eventsController", ["eventsService", "$scope", "detailsUtil", "$state" , "calendarEventService",
+    "mainService", function (eventsService, $scope, detailsUtil, $state, calendarEventService, mainService) {
 
         $scope.showDetail = function (event) {
             detailsUtil.setEvent(event);
-           // $state.go("eventsDetail");
             $state.reload();
-        }
+        };
+
+        $scope.eventState = mainService.getEventState();
+        var events = eventsService.getEvents();
+        $scope.morning = events[0];
+        $scope.evening = events[1];
 
     }]);

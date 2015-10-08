@@ -74,6 +74,7 @@ gulp.task("build", ["less", "copyAssets", "copyTemplates", "scripts", "copyIndex
 
 gulp.task("watch", function () {
     gulp.watch("/src/style/**", ["less"]);
+    gulp.watch(pathList,["scripts"]);
     gulp.watch("/src/**").on("change", browserSync.reload);
 });
 

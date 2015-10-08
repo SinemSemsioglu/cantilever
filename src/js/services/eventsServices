@@ -1,10 +1,44 @@
-app.service("eventsUtil", [function () {
+app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "searchEventService", "mainService",
+    "$window", function ($filter, eventsUtil, calendarEventService, searchEventService, mainService, $window) {
+
+        function arrayCompare (a,b) {
+            return a.time > b.time;
+        }
+        this.getEvents = function () {
+            var events = eventsUtil.getEvents();
+            var state = mainService.getEventState();
+            var arr;
+            if (state === "search") {
+                var query = searchEventService.getQuery();
+                arr = $filter("filter")(events, {"$": query}, false);
+            } else {
+                var date = calendarEventService.getDate();
+                arr = $filter("filter")(events, {"month": date.month, "day": date.day, "year": date.year}, true);
+            }
+
+            arr = arr.sort(arrayCompare);
+
+            var morning = [];
+            var evening = [];
+            for (var i = 0; i<arr.length; i++) {
+                if (parseFloat(arr[i].time) < 18) {
+                    morning.push(arr[i]);
+                } else {
+                    evening.push(arr[i]);
+                }
+            }
+            return [morning, evening];
+        };
+}]).service("eventsUtil", [function () {
 
     var events = [];
 
     events.push({
         "name": "suckerpin",
         "date": "12.3.2015",
+        "day": "4",
+        "month": "10",
+        "year": "2015",
         "time": "14.32",
         "location": "modeslektor",
         "description": "great, good, awesome",
@@ -15,6 +49,9 @@ app.service("eventsUtil", [function () {
     events.push({
         "name": "le perv",
         "location": "carpenter brut",
+        "day": "5",
+        "month": "10",
+        "year": "2015",
         "time": "10.30",
         "description": "le perv will be in berlin's favorite pissing hole",
         "phone": "1111",
@@ -23,7 +60,10 @@ app.service("eventsUtil", [function () {
     });
     events.push({
         "name": "leylek",
-        "date": "carpenter brut",
+        "date": "12.3.2015",
+        "day": "4",
+        "month": "10",
+        "year": "2015",
         "time": "22.15",
         "location": "ruby my dear",
         "description": "ruby ruby ruby!",
@@ -31,6 +71,10 @@ app.service("eventsUtil", [function () {
     });
     events.push({
         "name": "jitter room",
+        "date": "12.3.2015",
+        "day": "4",
+        "month": "10",
+        "year": "2015",
         "time": "16.45",
         "location": "vorpal",
         "description": "vorpal borpal morpal",
@@ -38,6 +82,10 @@ app.service("eventsUtil", [function () {
     });
     events.push({
         "name": "outrun this",
+        "date": "12.3.2015",
+        "day": "4",
+        "month": "10",
+        "year": "2015",
         "time": "20.45",
         "location": "massive attack",
         "description": "this is the end, beautiful friend the end.",

@@ -1,3 +1,5 @@
+@icon-size: 30px;
+
 .list-container {
   //position: relative;
   //left: 300px;
@@ -17,7 +19,16 @@
     }
     &.button {
       .box(auto;auto;transparent);
-      .inherit-font;
+      :not(.first) {
+        padding-left: @icon-size;
+      }
+      //float: left;
+      text-align: left;
     }
+  }
+
+  .time-icon {
+    height: @icon-size;
+    width: @icon-size;
   }
 }

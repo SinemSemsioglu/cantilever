@@ -1,3 +1,19 @@
-app.controller("calendarController", ["$scope", function ($scope) {
-    $scope.today = new Date();
+app.controller("calendarController", ["$scope", "$window", "calendarEventService",
+    function ($scope, $window, calendarEventService) {
+
+    var cookie = $window.sessionStorage.getItem("selectedDate");
+        var today = new Date();
+
+    var theDay;
+    if (!cookie) {
+        theDay = today;
+    } else {
+        theDay = new Date(JSON.parse(cookie));
+    }
+
+    $scope.selectedDate = theDay;
+    calendarEventService.setDate(theDay);
+    $scope.month = today.getMonth();
+    $scope.currYear = today.getFullYear();
+
 }]);

@@ -6,6 +6,10 @@ app.service("detailsUtil", [function () {
 
     };
 
+    this.clearEvent = function () {
+        event = {};
+    };
+
     this.getEvent = function () {
         return event;
     };
