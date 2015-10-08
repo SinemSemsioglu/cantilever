@@ -44,8 +44,9 @@ gulp.task("eslint", function () {
 gulp.task("webserver", function () {
     gulp.src("dist")
         .pipe(webserver({
-            host: "warm-tor-4887.herokuapp.com",
-            port: "3000",
+            host: "0.0.0.0",
+            port: process.env.PORT,
+            //port: "3000",
             livereload: true,
             open: true
         }));
