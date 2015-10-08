@@ -45,6 +45,7 @@ gulp.task("webserver", function () {
     gulp.src("dist")
         .pipe(webserver({
             host: "warm-tor-4887.herokuapp.com",
+            port: "3000",
             livereload: true,
             open: true
         }));
