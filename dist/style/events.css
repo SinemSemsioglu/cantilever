@@ -102,7 +102,7 @@ ul {
 }
 .list-container {
   float: left;
-  width: 65%;
+  width: 53%;
   margin: 0 3%;
 }
 .list-container .event {
@@ -122,10 +122,8 @@ ul {
   border: none;
   text-align: left;
 }
-.list-container .event.button :not(.first) {
-  padding-left: 30px;
-}
 .list-container .time-icon {
+  display: inline-block;
   height: 30px;
   width: 30px;
 }
