@@ -44,6 +44,7 @@ gulp.task("eslint", function () {
 gulp.task("webserver", function () {
     gulp.src("dist")
         .pipe(webserver({
+            host: "warm-tor-4887.herokuapp.com",
             livereload: true,
             open: true
         }));
