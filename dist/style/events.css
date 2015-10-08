@@ -76,7 +76,7 @@ ul {
 .calendars-container {
   float: left;
   position: absolute;
-  top: 220px;
+  top: 210px;
 }
 .calendars-container .calendar {
   width: 200px;
