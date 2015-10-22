@@ -28877,6 +28877,14 @@ app.controller("calendarController", ["$scope", "$window", "calendarEventService
     $scope.month = today.getMonth();
     $scope.currYear = today.getFullYear();
 
+        $scope.mobileShowCalendar = function () {
+            if (window.innerWidth < 780) {
+                var calendar = document.getElementsByClassName("first");
+                //alert(JSON.stringify(calendar));
+                calendar[0].style.display = "block";
+            }
+        };
+
 }]);
 app.controller("eventsController", ["eventsService", "$scope", "detailsUtil", "$state" , "calendarEventService",
     "mainService", function (eventsService, $scope, detailsUtil, $state, calendarEventService, mainService) {
@@ -28907,101 +28915,6 @@ app.controller("searchController", ["$scope", "$state", "searchEventService", "m
             mainService.setEventState("search");
             $state.reload();
         }
-    }
-}]);
-app.directive("tripleCalendar",["$window", "$state", "calendarEventService", "detailsUtil", "mainService",
-    function ($window, $state, calendarEventService, detailsUtil, mainService) {
-    return {
-        "restrict": "E",
-        "templateUrl": "templates/calendars.html",
-        "scope": {
-            "startingMonth": "=",
-            "year": "=",
-            "selectedDate": "=",
-            "numberOfMonths": "="
-        },
-        "link": function (scope, element, attrs) {
-            var month = scope.startingMonth;
-            scope.months = [];
-            scope.num =[];
-            scope.years = [];
-
-            function checkDate(day, month, selected) {
-                var selectedDay = selected.getDate();
-                var selectedMonth = selected.getMonth();
-                return (selectedDay === day) && (selectedMonth === month);
-            }
-
-            for (var i = 0; i < scope.numberOfMonths; i++) {
-                scope.months.push(((month + i) % 12));
-                scope.num.push(i);
-                scope.years.push(parseInt((month+i)/12, 10) + scope.year);
-            }
-
-            scope.isSelectedDate = function (day, month) {
-               if (mainService.getEventState()==="date") {
-                   return checkDate(day,month,scope.selectedDate);
-               }
-            };
-
-            scope.selectDay = function (day, month, year) {
-                scope.selectedDate = new Date(year, month, day);
-                calendarEventService.setDate(scope.selectedDate);
-                $window.sessionStorage.setItem("selectedDate", JSON.stringify(scope.selectedDate));
-                detailsUtil.clearEvent();
-                mainService.setEventState("date");
-                $state.reload();
-            };
-        }
-    };
-
-}]).directive("calendar",["calendarUtil", "$filter", function (calendarUtil, $filter) {
-    return {
-        "restrict": "E",
-        "templateUrl": "templates/calendar.html",
-        "scope": {
-            "month": "=",
-            "year": "="
-        },
-        "link": function (scope) {
-            scope.monthArray = calendarUtil.initializeMonth (scope.month);
-            scope.selectDay = scope.$parent.selectDay;
-            scope.isSelectedDate = scope.$parent.isSelectedDate;
-        }
-    };
-
-}]);
-app.directive("eventsList",["eventsService", function (eventsService) {
-    return {
-        "restrict": "E",
-        "templateUrl": "templates/list.html",
-        "scope": {
-            "morningEvents": "=",
-            "eveningEvents": "=",
-            "eventState": "="
-        },
-        "controller": "eventsController",
-        "link": function (scope) {
-            //$scope.$watch("eventState", function () {
-              //  alert("watch");
-
-
-            //scope.events = eventsService.getEvents();
-            //scope.showIcon = function (event, $event) {
-
-            //};
-            //});
-            var events = eventsService.getEvents();
-            scope.morningEvents = events[0];
-            scope.eveningEvents = events[1];
-        }
-    };
-}]);
-app.directive("eventSearch", [function () {
-    return {
-        "restrict": "E",
-        "templateUrl": "templates/search.html",
-        "controller": "searchController"
     }
 }]);
 app.service("calendarUtil", [function () {
@@ -29261,6 +29174,101 @@ app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "
         return events;
     };
 
+}]);
+app.directive("tripleCalendar",["$window", "$state", "calendarEventService", "detailsUtil", "mainService",
+    function ($window, $state, calendarEventService, detailsUtil, mainService) {
+    return {
+        "restrict": "E",
+        "templateUrl": "templates/calendars.html",
+        "scope": {
+            "startingMonth": "=",
+            "year": "=",
+            "selectedDate": "=",
+            "numberOfMonths": "="
+        },
+        "link": function (scope, element, attrs) {
+            var month = scope.startingMonth;
+            scope.months = [];
+            scope.num =[];
+            scope.years = [];
+
+            function checkDate(day, month, selected) {
+                var selectedDay = selected.getDate();
+                var selectedMonth = selected.getMonth();
+                return (selectedDay === day) && (selectedMonth === month);
+            }
+
+            for (var i = 0; i < scope.numberOfMonths; i++) {
+                scope.months.push(((month + i) % 12));
+                scope.num.push(i);
+                scope.years.push(parseInt((month+i)/12, 10) + scope.year);
+            }
+
+            scope.isSelectedDate = function (day, month) {
+               if (mainService.getEventState()==="date") {
+                   return checkDate(day,month,scope.selectedDate);
+               }
+            };
+
+            scope.selectDay = function (day, month, year) {
+                scope.selectedDate = new Date(year, month, day);
+                calendarEventService.setDate(scope.selectedDate);
+                $window.sessionStorage.setItem("selectedDate", JSON.stringify(scope.selectedDate));
+                detailsUtil.clearEvent();
+                mainService.setEventState("date");
+                $state.reload();
+            };
+        }
+    };
+
+}]).directive("calendar",["calendarUtil", "$filter", function (calendarUtil, $filter) {
+    return {
+        "restrict": "E",
+        "templateUrl": "templates/calendar.html",
+        "scope": {
+            "month": "=",
+            "year": "="
+        },
+        "link": function (scope) {
+            scope.monthArray = calendarUtil.initializeMonth (scope.month);
+            scope.selectDay = scope.$parent.selectDay;
+            scope.isSelectedDate = scope.$parent.isSelectedDate;
+        }
+    };
+
+}]);
+app.directive("eventsList",["eventsService", function (eventsService) {
+    return {
+        "restrict": "E",
+        "templateUrl": "templates/list.html",
+        "scope": {
+            "morningEvents": "=",
+            "eveningEvents": "=",
+            "eventState": "="
+        },
+        "controller": "eventsController",
+        "link": function (scope) {
+            //$scope.$watch("eventState", function () {
+              //  alert("watch");
+
+
+            //scope.events = eventsService.getEvents();
+            //scope.showIcon = function (event, $event) {
+
+            //};
+            //});
+            var events = eventsService.getEvents();
+            scope.morningEvents = events[0];
+            scope.eveningEvents = events[1];
+        }
+    };
+}]);
+app.directive("eventSearch", [function () {
+    return {
+        "restrict": "E",
+        "templateUrl": "templates/search.html",
+        "controller": "searchController"
+    }
 }]);
 app.service("calendarEventService", [function () {
     this.setDate = function (date) {

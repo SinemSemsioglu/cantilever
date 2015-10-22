@@ -1,7 +1,7 @@
 <div class="calendar-container">
     <div class="today">
-        <span class="date">{{selectedDate | date:"dd.MM.yyyy"}}</span>
-        <span class="day-of-week">{{selectedDate | date:"EEEE" | uppercase}}</span>
+        <div class="date" ng-click="mobileShowCalendar()">{{selectedDate | date:"dd.MM.yyyy"}}</div>
+        <div class="day-of-week">{{selectedDate | date:"EEEE" | uppercase}}</div>
     </div>
     <triple-calendar starting-month="month"  number-of-months="3" year="currYear"
                      selected-date="selectedDate" dates="dates"></triple-calendar>
