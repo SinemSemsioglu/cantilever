@@ -1,4 +1,4 @@
-<div class = "list-container">
+<div class = "list-container" ng-hide="eventState === 'mobileDetail'">
 	<div ng-repeat = "event in morningEvents">
 		<img src="assets/gones.png" class="time-icon" ng-show="$first">
 		<button class="event button" ng-class="{first: $first, last: $last}" value ="Details" ng-click="showDetail(event)">

@@ -1,6 +1,6 @@
 <div ui-view> </div>
-<div class = "detail-container">
-	<img class="event-display" src="{{event.img}}"/>
+<div class = "detail-container" ng-hide="mobileHide">
+	<img class="event-display" src="{{event.img}}" ng-click="hideDetail()"/>
 	<ul class ="details">
 		<li class="detail name"> {{event.name}} </li>
 		<li class="detail location"> {{event.location}} </li>
