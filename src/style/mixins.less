@@ -1,0 +1,22 @@
+.box(@height; @width; @color) {
+  background-color: @color;
+  min-height: @height;
+  width: @width;
+  border: none;
+}
+
+.mobile-container-center {
+  margin: 0 auto;
+  float: none !important;
+  text-align: center;
+  width: auto;
+}
+
+.mobile-element-center {
+  @media (min-width: @small-device-mid) {
+    width: 60% !important;
+  }
+  text-align: center !important;
+  float: none !important;
+  margin: 0 auto;
+}

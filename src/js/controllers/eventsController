@@ -1,0 +1,17 @@
+app.controller("eventsController", ["eventsService", "$scope", "detailsUtil", "$state" , "calendarEventService",
+    "mainService", function (eventsService, $scope, detailsUtil, $state, calendarEventService, mainService) {
+
+        $scope.showDetail = function (event) {
+            detailsUtil.setEvent(event);
+            if (window.innerWidth < 780) {
+                mainService.setEventState("mobileDetail");
+            }
+            $state.reload();
+        };
+
+        $scope.eventState = mainService.getEventState();
+        var events = eventsService.getEvents();
+        $scope.morning = events[0];
+        $scope.evening = events[1];
+
+    }]);

@@ -1,0 +1,14 @@
+@left-side-width: 15%;
+@right-side-width: 20%;
+@mid-section-width: 53%;
+
+@element-margin: 5px;
+@component-margin: 3%;
+
+.container {
+  .box(80%; 100%; @events-white);
+  margin: 0 @component-margin;
+  @media (min-width: @small-device-min) and (max-width: @small-device-max) {
+    margin: 0;
+  }
+}

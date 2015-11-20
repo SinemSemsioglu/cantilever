@@ -1,0 +1,68 @@
+.detail-container {
+  position: absolute;
+ // float: left;
+  right: @component-margin;
+  width: @right-side-width;
+
+  .event-display {
+    display: block;
+    max-width: 100%;
+    //margin: 0 @element-margin;
+    //float: left;
+  }
+
+  .details {
+    display: block;
+    padding: 0;
+    float: right;
+    max-width: 90%;
+
+    .detail {
+      text-align: right;
+      list-style: none;
+
+      &.location {
+        font-size: @size-3;
+      }
+      &.name {
+        font-size: @size-4;
+      }
+      &.description {
+        font-size: @size-2;
+      }
+    }
+  }
+}
+
+@media (min-width: @small-device-min) and (max-width: @small-device-max) {
+  .detail-container {
+    padding-top: 80px;
+    .mobile-container-center();
+    right: 0;
+    left: 0;
+    max-width: 90% !important;
+  }
+
+  .event-display {
+    //max-width: 90% !important;
+  }
+
+  .details, .event-display {
+    width: auto;
+
+    .detail {
+      list-style: none;
+      text-align: center !important;
+      &.location {
+        font-size: @size-2;
+      }
+      &.name {
+        font-size: @size-3;
+      }
+      &.description {
+        font-size: @size-1;
+      }
+    }
+   .mobile-element-center();
+  }
+}

@@ -1,0 +1,14 @@
+app.controller("eventsDetailController", ["$scope","$state", "detailsUtil", "mainService",
+    function ($scope, $state, detailsUtil, mainService) {
+    $scope.event = detailsUtil.getEvent();
+    $scope.hideDetail = function () {
+        alert("called");
+        mainService.setEventState("mobileEvents");
+        $state.reload();
+    };
+    var eventState = mainService.getEventState();
+    if (eventState === "mobileEvents") {
+       $scope.mobileHide = true;
+    }
+}]);
+

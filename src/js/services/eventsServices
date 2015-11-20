@@ -1,0 +1,210 @@
+app.service("eventsService", ["$filter", "eventsUtil", "calendarEventService", "searchEventService", "mainService",
+    "$window", function ($filter, eventsUtil, calendarEventService, searchEventService, mainService, $window) {
+
+        function arrayCompare (a,b) {
+            return a.time > b.time;
+        }
+        this.getEvents = function () {
+            var events = eventsUtil.getEvents();
+            var state = mainService.getEventState();
+            var arr;
+            if (state === "search") {
+                var query = searchEventService.getQuery();
+                arr = $filter("filter")(events, {"$": query}, false);
+            } else {
+                var date = calendarEventService.getDate();
+                arr = $filter("filter")(events, {"month": date.month, "day": date.day, "year": date.year}, true);
+            }
+
+            arr = arr.sort(arrayCompare);
+
+            var morning = [];
+            var evening = [];
+            for (var i = 0; i<arr.length; i++) {
+                if (parseFloat(arr[i].time) < 18) {
+                    morning.push(arr[i]);
+                } else {
+                    evening.push(arr[i]);
+                }
+            }
+            return [morning, evening];
+        };
+}]).service("eventsUtil", [function () {
+
+    var events = [
+
+    {
+        "name": "Reading Images: After Belonging",
+        "day": "8",
+        "month": "10",
+        "year": "2015",
+        "time": "14.32",
+        "location": "Storefront for Art and Arch.",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/sample.png"
+    },
+
+    {
+        "name": "Critical Halloween: DEMO",
+        "day": "8",
+        "month": "10",
+        "year": "2015",
+        "time": "15.32",
+        "location": "Storefront for Art and Arch.",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/1.png"
+    },
+
+    {
+        "name": "Facing East: Chinese Urbanism in Africa",
+        "day": "8",
+        "month": "10",
+        "year": "2015",
+        "time": "17.32",
+        "location": "Storefront for Art and Arch.",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/2.png"
+    },
+
+    {
+        "name": "Definition Series: Search vs Research",
+        "day": "8",
+        "month": "10",
+        "year": "2015",
+        "time": "19.32",
+        "location": "Storefront for Art and Arch.",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/3.png"
+    },
+
+    {
+        "name": "Measure",
+        "day": "9",
+        "month": "10",
+        "year": "2015",
+        "time": "14.32",
+        "location": "Storefront for Art and Arch.",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/4.png"
+    },
+
+    {
+        "name": "BLUEPRINT",
+        "day": "9",
+        "month": "10",
+        "year": "2015",
+        "time": "17.32",
+        "location": "Storefront for Art and Arch.",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/1.png"
+    },
+
+    {
+        "name": "Supercollider Situation",
+        "day": "9",
+        "month": "10",
+        "year": "2015",
+        "time": "20.32",
+        "location": "Storefront for Art and Arch.",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/2.png"
+    },
+
+    {
+        "name": "Circus for Construction",
+        "day": "10",
+        "month": "10",
+        "year": "2015",
+        "time": "14.32",
+        "location": "Storefront for Art and Arch.",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/3.png"
+    },
+
+    {
+        "name": "AIR UP!",
+        "day": "10",
+        "month": "10",
+        "year": "2015",
+        "time": "22.32",
+        "location": "Storefront for Art and Arch.",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/4.png"
+    },
+
+    {
+        "name": "Call for Pilots",
+        "day": "4",
+        "month": "11",
+        "year": "2015",
+        "time": "14.32",
+        "location": "Storefront for Art and Arch.",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/1.png"
+    },
+    {
+        "name": "Shore Up: Rebuilding Coastal Landscapes",
+        "day": "4",
+        "month": "11",
+        "year": "2015",
+        "time": "16.32",
+        "location": "AIANY",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/2.png"
+    },
+    {
+        "name": "Hidden History of the Brooklyn Bridge",
+        "day": "4",
+        "month": "11",
+        "year": "2015",
+        "time": "19.32",
+        "location": "AIANY",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/3.png"
+    },
+    {
+        "name": "Heatherwick Studio",
+        "day": "5",
+        "month": "11",
+        "year": "2015",
+        "time": "20.32",
+        "location": "AIANY",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/4.png"
+    },
+    {
+        "name": "Inventing Preservation",
+        "day": "6",
+        "month": "11",
+        "year": "2015",
+        "time": "11.32",
+        "location": "AIANY",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/1.png"
+    },
+    {
+        "name": "Demystifying Energy Modeling",
+        "day": "6",
+        "month": "11",
+        "year": "2015",
+        "time": "14.32",
+        "location": "AIANY",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/2.png"
+    },
+    {
+        "name": "Arch & Design Film Festival",
+        "day": "6",
+        "month": "11",
+        "year": "2015",
+        "time": "18.32",
+        "location": "AIANY",
+        "description": "Nullam vitae aliquet elit. Ut sodales, est et iaculis mattis, est sapien blandit nisi, mauris.",
+        "img": "/assets/3.png"
+    }];
+
+    this.getEvents = function () {
+        return events;
+    };
+
+}]);

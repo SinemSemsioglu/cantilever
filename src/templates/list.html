@@ -1,0 +1,17 @@
+<div class = "list-container" ng-hide="eventState === 'mobileDetail'">
+	<div ng-repeat = "event in morningEvents">
+		<img src="assets/gones.png" class="time-icon" ng-show="$first">
+		<button class="event button" ng-class="{first: $first, last: $last}" value ="Details" ng-click="showDetail(event)">
+			<span class="event name">{{event.name }}</span>
+			<span class="event location">{{event.location}}</span>
+		</button>
+	</div>
+	<div ng-repeat = "event in eveningEvents">
+		<img src="assets/ayy.png" class="time-icon" ng-show="$first">
+		<button class="event button" ng-class="{first: $first, last: $last}" value ="Details" ng-click="showDetail(event)">
+			<span class="event name">{{event.name }}</span>
+			<span class="event location">{{event.location}}</span>
+		</button>
+	</div>
+</div>
+	

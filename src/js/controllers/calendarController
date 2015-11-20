@@ -1,0 +1,27 @@
+app.controller("calendarController", ["$scope", "$window", "calendarEventService",
+    function ($scope, $window, calendarEventService) {
+
+    var cookie = $window.sessionStorage.getItem("selectedDate");
+        var today = new Date();
+
+    var theDay;
+    if (!cookie) {
+        theDay = today;
+    } else {
+        theDay = new Date(JSON.parse(cookie));
+    }
+
+    $scope.selectedDate = theDay;
+    calendarEventService.setDate(theDay);
+    $scope.month = today.getMonth();
+    $scope.currYear = today.getFullYear();
+
+    $scope.mobileShowCalendar = function () {
+        if (window.innerWidth < 780) {
+            var calendar = document.getElementsByClassName("first");
+            //alert(JSON.stringify(calendar));
+            calendar[0].style.display = "block";
+        }
+    };
+
+}]);
