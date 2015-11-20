@@ -22,7 +22,13 @@ app.directive("tripleCalendar",["$window", "$state", "calendarEventService", "de
             }
 
             for (var i = 0; i < scope.numberOfMonths; i++) {
-                scope.months.push(((month + i) % 12 + 1));
+                var nextMonth;
+                if (month = 11) {
+                    nextMonth = 12;
+                } else {
+                    nextMonth = (month + i) % 12;
+                }
+                scope.months.push(nextMonth);
                 scope.num.push(i);
                 scope.years.push(parseInt(((month+i)/12), 10) + scope.year);
             }
