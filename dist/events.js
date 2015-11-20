@@ -28956,7 +28956,7 @@ app.directive("tripleCalendar",["$window", "$state", "calendarEventService", "de
             for (var i = 0; i < scope.numberOfMonths; i++) {
                 scope.months.push(((month + i) % 12 + 1));
                 scope.num.push(i);
-                scope.years.push(parseInt(((month+i)/12)+1, 10) + scope.year);
+                scope.years.push(parseInt(((month+i)/12), 10) + scope.year);
             }
 
             scope.isSelectedDate = function (day, month) {
